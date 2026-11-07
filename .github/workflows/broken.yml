@@ -1,0 +1,19 @@
+name: Broken Workflow
+
+on: push
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Read the README
+        run: cat README.md
+
+      - name: Run a failing command
+        run: exit 1
+
+      - name: Show Python version
+        run: python --version
